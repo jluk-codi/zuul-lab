@@ -1,0 +1,41 @@
+version: "3"
+services:
+  zuul-scheduler:
+    image: zuul
+    command: zuul-scheduler -d
+    ports:
+      - "6379"
+    network_mode: host
+    volumes:
+       - ./etc.zuul:/etc/zuul
+  zuul-merger:
+    image: zuul
+    command: zuul-merger -d
+    network_mode: host
+    volumes:
+       - ./etc.zuul:/etc/zuul
+  zuul-web:
+    image: zuul
+    command: zuul-web -d
+    network_mode: host
+    volumes:
+       - ./etc.zuul:/etc/zuul
+  zuul-executor:
+    image: zuul
+    command: zuul-executor -d
+    network_mode: host
+    volumes:
+       - ./etc.zuul:/etc/zuul
+    privileged: true
+  nodepool-launcher:
+    image: nodepool
+    command: nodepool-launcher -d
+    network_mode: host
+    volumes:
+       - ./etc.nodepool:/etc/nodepool
+  slave01:
+    image: slave
+    network_mode: host
+  zookeeper:
+    image: zookeeper
+    network_mode: host

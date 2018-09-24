@@ -1,0 +1,6 @@
+epel-release [platform:rpm]
+python36 [platform:rpm]
+docker [platform:rpm]
+vim [platform:rpm]
+git [platform:rpm]
+tcpdump [platform:rpm]

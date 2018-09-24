@@ -1,0 +1,9 @@
+FROM centos:7
+RUN yum install -y openssh-server
+RUN adduser -m  zuul
+RUN mkdir /home/zuul/.ssh
+RUN ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa -b 521
+COPY zuul_id_rsa.pub /home/zuul/.ssh/authorized_keys
+RUN chown -R zuul /home/zuul/.ssh
+RUN chmod -R 700 /home/zuul/.ssh
+CMD /usr/sbin/sshd -D -p 2222

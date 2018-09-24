@@ -1,0 +1,16 @@
+zookeeper-servers:
+  - host: 127.0.0.1
+
+labels:
+  - name: centos7
+
+providers:
+  - name: static-provider
+    driver: static
+    pools:
+      - name: main
+        nodes:
+          - name: 127.0.0.1
+            labels:
+              - centos7
+            connection-port: 2222

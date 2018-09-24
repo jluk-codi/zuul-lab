@@ -1,0 +1,8 @@
+- tenant:
+    name: tenant1
+    source:
+      github_conn:
+        config-projects:
+          - namespace/project-config
+        untrusted-projects:
+          - namespace/zuul-jobs

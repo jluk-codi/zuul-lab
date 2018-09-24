@@ -1,0 +1,6 @@
+/zuul
+/nodepool
+/venv-*
+*.pyc
+*id_rsa*
+*.key
