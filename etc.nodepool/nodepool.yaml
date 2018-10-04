@@ -3,6 +3,8 @@ zookeeper-servers:
 
 labels:
   - name: centos7
+  - name: centos8
+  - name: centos7-static
 
 providers:
   - name: static-provider
@@ -14,3 +16,26 @@ providers:
             labels:
               - centos7
             connection-port: 2222
+  - name: vexxhost
+    driver: openstack
+    cloud: vexxhost
+    region-name: sjc1
+    image-type: raw
+    cloud-images:
+      - name: centos7-static
+        image-id: 02faa4dc-7e73-402e-a97d-86a076ca5063
+        username: centos 
+    pools:
+      - name: sjc1
+        availability-zones:
+          - nova
+        networks:
+          - public
+        max-servers: 10
+        auto-floating-ip: False
+        labels:
+          - name: centos7-static
+            flavor-name: v2-standard-1
+            cloud-image: centos7-static
+            console-log: True
+            key-name: ci-key

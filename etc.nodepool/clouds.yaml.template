@@ -1,0 +1,13 @@
+clouds:
+  vexxhost:
+    profile: vexxhost
+    auth:
+      username: u
+      user_domain_name: Default
+      user_domain_id: default
+      password: p
+      project_name: p
+      project_domain_name: Default
+      project_domain_id: default
+      auth_url: https://auth.vexxhost.net/v3
+    region_name: sjc1

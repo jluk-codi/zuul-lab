@@ -4,3 +4,4 @@
 *.pyc
 *id_rsa*
 *.key
+/etc.nodepool/clouds.yaml
